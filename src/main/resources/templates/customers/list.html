@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a  href="/create-customer">Create new customer</a>
+<h1>Customer</h1>
+<table border="1">
+    <tr>
+        <td>First Name</td>
+        <td>Last Name</td>
+    </tr>
+    <th:blook th:each="customers : ${customer}">
+        <tr>
+            <td th:text="${customers.firstName}"></td>
+            <td th:text="${customers.lastName}"></td>
+            <td>
+                <a th:href="@{/edit-customer/__${customers.id}__}">Edit</a>
+            </td>
+            <td>
+                <a th:href="@{/delete-customer/__${customers.id}__}">Delete</a>
+            </td>
+        </tr>
+    </th:blook>
+</table>
+</body>
+</html>
